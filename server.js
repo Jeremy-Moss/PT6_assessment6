@@ -8,6 +8,8 @@ const playerRecord = {
 };
 const app = express();
 
+app.use(express.static(`${__dirname}/public`));
+
 app.use(express.json());
 
 // Add up the total health of all the robots
