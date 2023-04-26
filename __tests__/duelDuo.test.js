@@ -16,3 +16,13 @@ describe("Duel Duo tests", () => {
     await driver.wait(until.titleIs("Duel Duo"), 1000);
   });
 });
+
+test('draw button shows choices', async () => {
+  const drawBtn = await driver.findElement(By.id('draw'));
+  await drawBtn.click()
+
+  await driver.wait(until.elementsLocated(By.className("bot-card")))
+  const botCards = await driver.findElements(By.className("bot-card"))
+  expect(botCards.length).toEqual(5)
+
+})
